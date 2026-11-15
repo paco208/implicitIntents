@@ -13,3 +13,15 @@ Aplikacija, ki z implicitnimi nameni odpre spletno stran, prikaže lokacijo na z
 - V `AndroidManifest.xml` je zapis `<queries>`, da `resolveActivity()` na Androidu 11 in novejših vidi brskalnik in zemljevid
 - **ReceiverActivity** z zapisom `intent-filter` (akcija VIEW, kategoriji DEFAULT in BROWSABLE, gostitelj developer.android.com), ki sprejme povezavo in prejeti URI, pridobljen z `getIntent().getData()`, prikaže v **TextView**
 - Vsa besedila so v datoteki `strings.xml`
+
+## Posnetki zaslona
+
+<p align="center">
+  <img src="screenshots/main.png" height="450">
+  &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/website.png" height="450">
+  &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/location.png" height="450">
+  &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/share.png" height="450">
+</p>
