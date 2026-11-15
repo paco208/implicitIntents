@@ -1,13 +1,19 @@
 package com.example.implicitintents;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     private EditText mWebsiteEditText;
     private EditText mLocationEditText;
@@ -27,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
     /** Gumb Open Website: odpre spletno stran. */
     public void openWebsite(View view) {
+        String url = mWebsiteEditText.getText().toString().trim();
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        startIfResolvable(intent);
     }
 
     /** Gumb Open Location: prikaže lokacijo na zemljevidu. */
@@ -35,5 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
     /** Gumb Share This Text: deli besedilo z drugimi aplikacijami. */
     public void shareText(View view) {
+    }
+
+    /**
+     * Zažene implicitni namen samo, če sistem najde aktivnost, ki ga zna
+     * obdelati; sicer prikaže obvestilo, da aplikacija ne pade.
+     */
+    private void startIfResolvable(Intent intent) {
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Log.d(LOG_TAG, "Can't handle this intent: " + intent);
+            Toast.makeText(this, R.string.no_app_found, Toast.LENGTH_SHORT).show();
+        }
     }
 }
