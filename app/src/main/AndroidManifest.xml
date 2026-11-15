@@ -38,6 +38,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Sprejme povezave do developer.android.com (http in https). -->
+        <activity
+            android:name=".ReceiverActivity"
+            android:exported="true"
+            android:label="@string/receiver_title">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="developer.android.com" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -13,4 +13,9 @@
 
     <string name="share_chooser_title">Share this text with:</string>
     <string name="no_app_found">Ni aplikacije, ki bi lahko obdelala ta namen.</string>
+
+    <!-- Sprejemna aktivnost -->
+    <string name="receiver_title">Implicit Intents Receiver</string>
+    <string name="no_uri">Ni prejetega URI-ja.</string>
+    <string name="uri_label">URI: %1$s</string>
 </resources>
