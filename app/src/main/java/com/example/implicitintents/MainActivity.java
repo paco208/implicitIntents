@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ShareCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
 
     /** Gumb Share This Text: deli besedilo z drugimi aplikacijami. */
     public void shareText(View view) {
+        String txt = mShareTextEditText.getText().toString();
+        String mimeType = "text/plain";
+        new ShareCompat.IntentBuilder(this)
+                .setType(mimeType)
+                .setChooserTitle(R.string.share_chooser_title)
+                .setText(txt)
+                .startChooser();
     }
 
     /**
