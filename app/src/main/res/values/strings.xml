@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">implicitIntents</string>
+    <string name="app_name">Implicit Intents</string>
+
+    <!-- Vnosna polja -->
+    <string name="edittext_uri">https://developer.android.com</string>
+    <string name="edittext_loc">School Centre Nova Gorica</string>
+    <string name="edittext_share">Na ŠCNG razvijamo znanje za prihodnost.</string>
+
+    <!-- Gumbi -->
+    <string name="button_uri">Open Website</string>
+    <string name="button_loc">Open Location</string>
+    <string name="button_share">Share This Text</string>
 </resources>
