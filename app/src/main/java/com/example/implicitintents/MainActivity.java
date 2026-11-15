@@ -41,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     /** Gumb Open Location: prikaže lokacijo na zemljevidu. */
     public void openLocation(View view) {
+        String loc = mLocationEditText.getText().toString().trim();
+        // Oblika geo:0,0?q=iskana_lokacija; presledke in posebne znake zakodiramo.
+        Uri addressUri = Uri.parse("geo:0,0?q=" + Uri.encode(loc));
+        Intent intent = new Intent(Intent.ACTION_VIEW, addressUri);
+        startIfResolvable(intent);
     }
 
     /** Gumb Share This Text: deli besedilo z drugimi aplikacijami. */
