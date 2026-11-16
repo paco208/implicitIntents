@@ -5,11 +5,15 @@
     <string name="edittext_uri">https://developer.android.com</string>
     <string name="edittext_loc">School Centre Nova Gorica</string>
     <string name="edittext_share">Na ŠCNG razvijamo znanje za prihodnost.</string>
+    <string name="edittext_phone_hint">Telefonska številka</string>
 
     <!-- Gumbi -->
     <string name="button_uri">Open Website</string>
     <string name="button_loc">Open Location</string>
     <string name="button_share">Share This Text</string>
+    <string name="button_call">Call</string>
+
+    <string name="no_phone">Vnesite telefonsko številko.</string>
 
     <string name="share_chooser_title">Share this text with:</string>
     <string name="no_app_found">Ni aplikacije, ki bi lahko obdelala ta namen.</string>

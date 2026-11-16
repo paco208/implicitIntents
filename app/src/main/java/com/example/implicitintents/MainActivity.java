@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mWebsiteEditText;
     private EditText mLocationEditText;
     private EditText mShareTextEditText;
+    private EditText mPhoneEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         mWebsiteEditText = findViewById(R.id.website_edittext);
         mLocationEditText = findViewById(R.id.location_edittext);
         mShareTextEditText = findViewById(R.id.share_edittext);
+        mPhoneEditText = findViewById(R.id.phone_edittext);
     }
 
     /** Gumb Open Website: odpre spletno stran. */
@@ -58,6 +60,21 @@ public class MainActivity extends AppCompatActivity {
                 .setChooserTitle(R.string.share_chooser_title)
                 .setText(txt)
                 .startChooser();
+    }
+
+    /**
+     * Gumb Call: odpre klicalnik z vpisano številko. ACTION_DIAL ne kliče
+     * sam, zato ne potrebuje dovoljenja CALL_PHONE.
+     */
+    public void callNumber(View view) {
+        String phone = mPhoneEditText.getText().toString().trim();
+        if (phone.isEmpty()) {
+            Toast.makeText(this, R.string.no_phone, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Uri number = Uri.parse("tel:" + phone);
+        Intent intent = new Intent(Intent.ACTION_DIAL, number);
+        startIfResolvable(intent);
     }
 
     /**
